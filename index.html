@@ -133,6 +133,7 @@
             border-radius: 5px;
             font-weight: 600;
             transition: background-color 0.3s ease;
+            cursor: pointer;
         }
         .download-btn:hover {
             background-color: #0056b3;
@@ -149,7 +150,7 @@
                 font-size: 2rem;
             }
             .subheader {
-                font-size: 1.25rem;
+                font-size: 1.5rem;
             }
             .description {
                 font-size: 0.9rem;
@@ -289,9 +290,9 @@
 <body>
     <div class="hero">
         <div class="hero-content">
-            <h1>Don't Let Autonomous Fleets Drive You Out of Business — Insurers Must Shift Gears Now</h1>
-            <p class="subheader">The Impact of Autonomous Vehicles on the Insurance Industry</p>
-            <a href="#" class="download-btn top-download" onclick="alert('Download functionality would be implemented here.')">Download Report as PDF</a>
+            <h1>The Impact of Autonomous Vehicles on the Insurance Industry</h1>
+            <p class="subheader">Autonomous fleets may drive insurers out of business unless they shift gears</p>
+            <!-- <a href="#" class="download-btn top-download" onclick="generatePDF()">Download Report as PDF</a> /* Add button when a better PDF generator solution is found */ -->
         </div>
     </div>
 
@@ -1351,7 +1352,7 @@
             </section>
         </div>
 
-        <a href="#" class="download-btn" onclick="alert('Download functionality would be implemented here.')">Download Report as PDF</a>
+        
     </div>
 
     <script>
@@ -1365,6 +1366,24 @@
             });
         });
     </script>
+
+    <!-- Place the jsPDF script just before the closing body tag -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Add content to the PDF
+            doc.text("Autonomous Fleets and the Insurance Industry", 10, 10);
+            doc.text("Don't Let Autonomous Fleets Drive You Out of Business", 10, 20);
+            doc.text("This report discusses the impact of autonomous vehicles on the insurance industry.", 10, 30);
+
+            // Save the PDF
+            doc.save("Report.pdf");
+        }
+    </script>
+
 </body>
 </html>
                     
